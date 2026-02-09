@@ -2,8 +2,19 @@ import { de } from "./de";
 import { en } from "./en";
 
 export type Translation = {
-  home: {
+  navbar: {
+    vegan: string;
+    projects: string;
+  }
+  aboutMe: {
     heading: string;
+  },
+  vegan: {
+    veganism: string;
+    definition: string;
+  }
+  projects: {
+    projects: string;
   }
 };
 
