@@ -12,11 +12,22 @@ export type Translation = {
   vegan: {
     veganism: string;
     definition: string;
+    veganMisconceptions: {
+        veganMisconceptions: string;
+        list: VeganMisconception[];
+    },
+    unfold: string;
+    close: string;
   }
   projects: {
     projects: string;
   }
 };
+
+type VeganMisconception = {
+    name: string;
+    content: string;
+}
 
 export const translations: Record<string, Translation> = {
   de,
