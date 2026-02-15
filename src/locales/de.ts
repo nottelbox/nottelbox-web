@@ -36,6 +36,7 @@ export const de: Translation = {
         close: "schließen"
     },
     projects: {
-        projects: "Projekte"
+        projects: "Projekte",
+        conweysGameOfLife: "Conweys Spiel des Lebens"
     }
 };

@@ -36,6 +36,7 @@ export const en: Translation = {
         close: "close"
     },
     projects: {
-        projects: "projects"
+        projects: "projects",
+        conweysGameOfLife: "Conwey's Game of Life"
     }
 };

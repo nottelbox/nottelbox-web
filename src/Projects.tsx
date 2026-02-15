@@ -1,3 +1,4 @@
+import GameOfLife from "./GameOfLife";
 import { useTranslation } from "./locales/useTranslation";
 
 export default function Projects() {
@@ -5,6 +6,7 @@ export default function Projects() {
     return (
         <main style={{ padding: 40 }}>
             <h1>{t.projects}</h1>
+            <GameOfLife />
         </main>
     );
 }

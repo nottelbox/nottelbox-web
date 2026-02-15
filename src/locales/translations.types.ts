@@ -21,6 +21,7 @@ export type Translation = {
   }
   projects: {
     projects: string;
+    conweysGameOfLife: string;
   }
 };
 
