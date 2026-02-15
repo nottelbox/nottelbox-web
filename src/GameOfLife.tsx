@@ -9,15 +9,28 @@ export default function GameOfLife() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const gridRef = useRef<Uint8Array>(createGrid());
     const runningRef = useRef(false);
+    const speedRef = useRef(100); // ms pro Generation
+    const lastTimeRef = useRef(0);
+    const accRef = useRef(0);
+
 
     const [running, setRunning] = useState(false);
+    const [speed, setSpeed] = useState(100);
 
     const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 
-    function loop() {
+    function loop(timestamp: number) {
       if (!runningRef.current) return;
 
-      gridRef.current = nextGeneration(gridRef.current);
+      const delta = timestamp - lastTimeRef.current;
+      lastTimeRef.current = timestamp;
+      accRef.current += delta;
+
+      if (accRef.current >= speedRef.current) {
+        gridRef.current = nextGeneration(gridRef.current);
+        accRef.current = 0;
+      }
+
       draw(ctxRef.current!, gridRef.current);
 
       requestAnimationFrame(loop);
@@ -102,6 +115,7 @@ export default function GameOfLife() {
     setRunning(runningRef.current);
 
     if (runningRef.current) {
+        lastTimeRef.current = performance.now();
         requestAnimationFrame(loop);
     }
   }
@@ -123,6 +137,21 @@ export default function GameOfLife() {
       />
 
       <div style={{ marginTop: 12 }}>
+      <input
+          type="range"
+          min={20}
+          max={500}
+          step={10}
+          value={speed}
+          onChange={(e) => {
+            const value = Number(e.target.value);
+            setSpeed(value);
+            speedRef.current = value;
+          }}
+        />
+
+        <span>{speed} ms</span>
+
         <button onClick={toggleRunning}>
           {running ? "Pause" : "Start"}
         </button>
