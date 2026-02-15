@@ -1,5 +1,6 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "./locales/useTranslation";
+import VeganMisconceptionCard from "./VeganMisconceptionCard";
 
 export default function Vegan() {
     const {vegan: t} = useTranslation();
@@ -10,12 +11,10 @@ export default function Vegan() {
             <p>{t.definition}</p>
             <div>
                 <h2>{t.veganMisconceptions.veganMisconceptions}</h2>
-                {t.veganMisconceptions.list.map(m => <Fragment key={m.name}>
-                                                <h3>
-                                                    {m.name}<button onClick={_ => setOpenMisconception(p => p === m.name ? "" : m.name)}>{openMisconception === m.name ? t.close : t.unfold}</button>
-                                                </h3>
-                                                {openMisconception === m.name && <p>{m.content}</p>}
-                                                </Fragment>)}
+                {t.veganMisconceptions.list.map(m => <VeganMisconceptionCard
+                                                m={m}
+                                                openMisconception={openMisconception}
+                                                setOpenMisconception={setOpenMisconception}/>)}
             </div>
         </main>
     );

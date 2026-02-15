@@ -24,7 +24,7 @@ export type Translation = {
   }
 };
 
-type VeganMisconception = {
+export type VeganMisconception = {
     name: string;
     content: string;
 }
