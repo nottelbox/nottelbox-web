@@ -171,6 +171,13 @@ export default function GameOfLife() {
       isDrawingRef.current = false;
     }
 
+    function clearGrid() {
+        const arr = new Uint8Array(GRID_SIZE * GRID_SIZE);
+        arr.fill(0);
+        gridRef.current = arr;
+        draw(ctxRef.current!, gridRef.current)
+    }
+
 
   return (
     <div>
@@ -192,6 +199,7 @@ export default function GameOfLife() {
             {running ? t.controls.pause : t.controls.start}
           </button>
           <button onClick={reset}>{t.controls.random}</button>
+          <button onClick={clearGrid}>{t.controls.clear}</button>
           <div className="speed-slider">
               <label>{t.controls.generationDuration}</label>
               <input

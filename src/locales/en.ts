@@ -44,9 +44,10 @@ export const en: Translation = {
                 pause: "pause",
                 random: "random",
                 singleStep: "single step",
-                generationDuration: "duration of a generation",
+                generationDuration: "duration of one generation",
                 ms: "ms",
-                generationsPerSecond: "generations per second"
+                generationsPerSecond: "generations per second",
+                clear: "clear"
             }
         }
     }

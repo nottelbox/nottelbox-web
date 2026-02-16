@@ -31,6 +31,7 @@ export type Translation = {
             generationDuration: string;
             ms: string;
             generationsPerSecond: string;
+            clear: string;
         }
     }
   }
