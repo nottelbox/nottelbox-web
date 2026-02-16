@@ -43,6 +43,7 @@ export const en: Translation = {
                 start: "start",
                 pause: "pause",
                 random: "random",
+                singleStep: "single step",
                 generationDuration: "duration of a generation",
                 ms: "ms",
                 generationsPerSecond: "generations per second"

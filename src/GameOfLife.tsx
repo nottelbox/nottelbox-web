@@ -32,9 +32,13 @@ export default function GameOfLife() {
       }
 
       draw(ctxRef.current!, gridRef.current);
-
       requestAnimationFrame(loop);
     }
+
+  function singleStep() {
+    gridRef.current = nextGeneration(gridRef.current);
+    draw(ctxRef.current!, gridRef.current);
+  }
 
   function createGrid() {
     const arr = new Uint8Array(GRID_SIZE * GRID_SIZE);
@@ -103,12 +107,12 @@ export default function GameOfLife() {
     }
   }
 
-      useEffect(() => {
-      const canvas = canvasRef.current!;
-      ctxRef.current = canvas.getContext("2d")!;
+  useEffect(() => {
+  const canvas = canvasRef.current!;
+  ctxRef.current = canvas.getContext("2d")!;
 
-      draw(ctxRef.current, gridRef.current);
-    }, []);
+  draw(ctxRef.current, gridRef.current);
+  }, []);
 
   function toggleRunning() {
     runningRef.current = !runningRef.current;
@@ -158,6 +162,7 @@ export default function GameOfLife() {
               <label>{speed} {t.controls.ms}</label>
               <label>{(1000/speed).toFixed(0)} {t.controls.generationsPerSecond}</label>
           </div>
+          <button onClick={singleStep} disabled={running}>{t.controls.singleStep}</button>
       </div>
     </div>
   );

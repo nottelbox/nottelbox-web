@@ -43,6 +43,7 @@ export const de: Translation = {
                 start: "Starten",
                 pause: "Pausieren",
                 random: "Zufällig",
+                singleStep: "Einzelschritt",
                 generationDuration: "Dauer eine Generation",
                 ms: "ms",
                 generationsPerSecond: "Generationen pro Sekunde"

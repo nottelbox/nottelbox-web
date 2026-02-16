@@ -27,6 +27,7 @@ export type Translation = {
             start: string;
             pause: string;
             random: string;
+            singleStep: string;
             generationDuration: string;
             ms: string;
             generationsPerSecond: string;
