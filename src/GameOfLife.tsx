@@ -12,7 +12,8 @@ export default function GameOfLife() {
     const speedRef = useRef(100); // ms pro Generation
     const lastTimeRef = useRef(0);
     const accRef = useRef(0);
-
+    const isDrawingRef = useRef(false);
+    const drawValueRef = useRef<0 | 1>(1);
 
     const [running, setRunning] = useState(false);
     const [speed, setSpeed] = useState(100);
@@ -108,10 +109,10 @@ export default function GameOfLife() {
   }
 
   useEffect(() => {
-  const canvas = canvasRef.current!;
-  ctxRef.current = canvas.getContext("2d")!;
+      const canvas = canvasRef.current!;
+      ctxRef.current = canvas.getContext("2d")!;
 
-  draw(ctxRef.current, gridRef.current);
+      draw(ctxRef.current, gridRef.current);
   }, []);
 
   function toggleRunning() {
@@ -130,6 +131,47 @@ export default function GameOfLife() {
     draw(ctx, gridRef.current);
   }
 
+    function getCellFromMouse(
+    e: React.MouseEvent<HTMLCanvasElement>
+    ) {
+      const rect = canvasRef.current!.getBoundingClientRect();
+
+      const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
+      const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+
+      return { x, y };
+    }
+
+    function setCell(x: number, y: number, value: 0 | 1) {
+      const i = getIndex(x, y);
+      gridRef.current[i] = value;
+    }
+
+    function handleMouseDown(e: React.MouseEvent<HTMLCanvasElement>) {
+      isDrawingRef.current = true;
+
+      const { x, y } = getCellFromMouse(e);
+
+      drawValueRef.current = e.button === 2 ? 0 : 1;
+
+      setCell(x, y, drawValueRef.current);
+      draw(ctxRef.current!, gridRef.current);
+    }
+
+    function handleMouseMove(e: React.MouseEvent<HTMLCanvasElement>) {
+      if (!isDrawingRef.current) return;
+
+      const { x, y } = getCellFromMouse(e);
+      setCell(x, y, drawValueRef.current);
+
+      draw(ctxRef.current!, gridRef.current);
+    }
+
+    function stopDrawing() {
+      isDrawingRef.current = false;
+    }
+
+
   return (
     <div>
     <h2>{t.conwaysGameOfLife}</h2>
@@ -138,6 +180,11 @@ export default function GameOfLife() {
         width={GRID_SIZE * CELL_SIZE}
         height={GRID_SIZE * CELL_SIZE}
         style={{ border: "1px solid #333" }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
+        onContextMenu={(e) => e.preventDefault()}
       />
 
       <div className="game-controls">
