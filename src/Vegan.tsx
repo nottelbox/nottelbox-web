@@ -12,6 +12,7 @@ export default function Vegan() {
             <div>
                 <h2>{t.veganMisconceptions.veganMisconceptions}</h2>
                 {t.veganMisconceptions.list.map(m => <VeganMisconceptionCard
+                                                key={m.name}
                                                 m={m}
                                                 openMisconception={openMisconception}
                                                 setOpenMisconception={setOpenMisconception}/>)}
