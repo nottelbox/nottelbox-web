@@ -1,7 +1,6 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { useTranslation } from "./locales/useTranslation";
 import type { VeganMisconception } from "./locales/translations.types.ts";
-import chevron from "./assets/chevron.svg";
+//import chevron from "./assets/chevron.svg";
 
 
 type VeganMisconceptionProps = {
@@ -13,17 +12,16 @@ type VeganMisconceptionProps = {
 export default function VeganMisconceptionCard({
     m,
     openMisconception, setOpenMisconception}: VeganMisconceptionProps) {
-    // const {vegan: t} = useTranslation();
     return (<>
                 <button
                 onClick={_ => setOpenMisconception(p => p === m.name ? "" : m.name)}
                 className="misconception-button">
                     <span>{m.name}</span>
-                    <img
+                    {/*<img
                       src={chevron}
                       className={`chevron ${openMisconception === m.name ? "open" : ""}`}
                       alt=""
-                    />
+                    />*/}
                 </button>
                 {openMisconception === m.name
                     && <p className="misconception-text">{m.content}</p>}
