@@ -17,6 +17,9 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    .start-button {
+        width: 7rem;
+    }
 }
 
 .logo {

@@ -141,7 +141,7 @@ export default function GameOfLife() {
       />
 
       <div className="game-controls">
-          <button onClick={toggleRunning}>
+          <button className="start-button" onClick={toggleRunning}>
             {running ? t.controls.pause : t.controls.start}
           </button>
           <button onClick={reset}>{t.controls.random}</button>
