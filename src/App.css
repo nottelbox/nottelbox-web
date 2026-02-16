@@ -5,6 +5,23 @@
   text-align: center;
 }
 
+.speed-slider {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    border: 1px black solid;
+}
+
+.game-controls {
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    button {
+        width: 6rem;
+    }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

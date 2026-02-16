@@ -37,6 +37,16 @@ export const de: Translation = {
     },
     projects: {
         projects: "Projekte",
-        conweysGameOfLife: "Conweys Spiel des Lebens"
+        gameOfLife: {
+            conwaysGameOfLife: "Conways Spiel des Lebens",
+            controls: {
+                start: "Starten",
+                pause: "Pausieren",
+                random: "Zufällig",
+                generationDuration: "Dauer eine Generation",
+                ms: "ms",
+                generationsPerSecond: "Generationen pro Sekunde"
+            }
+        }
     }
 };

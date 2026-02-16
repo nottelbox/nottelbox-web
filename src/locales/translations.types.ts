@@ -21,7 +21,17 @@ export type Translation = {
   }
   projects: {
     projects: string;
-    conweysGameOfLife: string;
+    gameOfLife: {
+        conwaysGameOfLife: string;
+        controls: {
+            start: string;
+            pause: string;
+            random: string;
+            generationDuration: string;
+            ms: string;
+            generationsPerSecond: string;
+        }
+    }
   }
 };
 

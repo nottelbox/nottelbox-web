@@ -5,7 +5,7 @@ const GRID_SIZE = 100;
 const CELL_SIZE = 6;
 
 export default function GameOfLife() {
-    const { projects: t } = useTranslation();
+    const { projects: { gameOfLife: t } } = useTranslation();
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const gridRef = useRef<Uint8Array>(createGrid());
     const runningRef = useRef(false);
@@ -128,7 +128,7 @@ export default function GameOfLife() {
 
   return (
     <div>
-    <h2>{t.conweysGameOfLife}</h2>
+    <h2>{t.conwaysGameOfLife}</h2>
       <canvas
         ref={canvasRef}
         width={GRID_SIZE * CELL_SIZE}
@@ -136,27 +136,28 @@ export default function GameOfLife() {
         style={{ border: "1px solid #333" }}
       />
 
-      <div style={{ marginTop: 12 }}>
-      <input
-          type="range"
-          min={20}
-          max={500}
-          step={10}
-          value={speed}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setSpeed(value);
-            speedRef.current = value;
-          }}
-        />
-
-        <span>{speed} ms</span>
-
-        <button onClick={toggleRunning}>
-          {running ? "Pause" : "Start"}
-        </button>
-
-        <button onClick={reset}>Random</button>
+      <div className="game-controls">
+          <button onClick={toggleRunning}>
+            {running ? t.controls.pause : t.controls.start}
+          </button>
+          <button onClick={reset}>{t.controls.random}</button>
+          <div className="speed-slider">
+              <label>{t.controls.generationDuration}</label>
+              <input
+                  type="range"
+                  min={10}
+                  max={500}
+                  step={10}
+                  value={speed}
+                  onChange={(e) => {
+                    const value = Number(e.target.value);
+                    setSpeed(value);
+                    speedRef.current = value;
+                  }}
+                />
+              <label>{speed} {t.controls.ms}</label>
+              <label>{(1000/speed).toFixed(0)} {t.controls.generationsPerSecond}</label>
+          </div>
       </div>
     </div>
   );
