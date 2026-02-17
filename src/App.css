@@ -5,6 +5,27 @@
   text-align: center;
 }
 
+.introduction {
+    text-align: left;
+    margin: 1rem 4rem;
+}
+
+.skill-container {
+    display: flex;
+}
+
+.skill-card {
+    margin: 4rem;
+}
+
+.skill-heading {
+    height: 4rem;
+}
+
+.skill-explanation {
+    text-align: left;
+}
+
 .misconception-button {
     display: flex;
     justify-content: space-between;

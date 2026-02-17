@@ -8,6 +8,8 @@ export type Translation = {
   }
   aboutMe: {
     heading: string;
+    introduction: string;
+    skills: Skill[];
   },
   vegan: {
     veganism: string;
@@ -41,6 +43,13 @@ export type VeganMisconception = {
     name: string;
     content: string;
 }
+
+export type Skill = {
+    symbol: string;
+    heading: string;
+    explanation: string;
+}
+
 
 export const translations: Record<string, Translation> = {
   de,

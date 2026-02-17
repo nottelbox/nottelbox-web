@@ -6,7 +6,59 @@ export const en: Translation = {
         projects: "projects"
     },
     aboutMe: {
-        heading: "Hi, I am Simon"
+        heading: "Hi, I am Simon 👨‍💻",
+        introduction: [
+            "Hi, I'm Simon – a full-stack developer with over four years",
+            'of experience in developing modern web applications.\nI analyze',
+            'requirements in a structured manner, question existing processes,',
+            'and use this information to develop well-thought-out, efficient',
+            'solutions. As an INTJ, I think strategically, quickly familiarize',
+            'myself with complex domains, and never lose sight of the big',
+            'picture.\n\nClear communication is particularly important to me:',
+            'I can explain technical concepts in an understandable way, present',
+            'confidently in front of groups, and actively contribute ideas in',
+            'reviews and team discussions.\nTechnologically, I am proficient',
+            'in the backend with C#/.NET, Entity Framework, SQL Server, and',
+            'MongoDB, as well as in the frontend with TypeScript and React.',
+            'In addition, I have experience with CI/CD, deployment, and',
+            'containerization, and am certified as a Microsoft Azure',
+            'Developer Associate.'
+            ].join(' '),
+        skills: [
+            {
+                symbol: "🧠",
+                heading: "Analytical thinking & requirements management",
+                explanation: [
+                    'I set requirements in a structured manner and with',
+                    'a view to adding technical value. Through targeted',
+                    'discussions with key users, I quickly identify',
+                    'connections and translate complex processes into clear,',
+                    'implementable technical concepts.'
+                ].join(' ')
+            },
+            {
+                symbol: "💬",
+                heading: "Communication & Ownership",
+                explanation: [
+                    'I explain technical content in an understandable way,',
+                    'moderate discussions in a solution-oriented manner, and',
+                    'present results confidently—even in front of large groups.',
+                    'Taking responsibility and actively driving topics forward',
+                    'is second nature to me.'
+                ].join(' ')
+            },
+            {
+                symbol: "⚙️",
+                heading: "Full-stack & cloud mindset",
+                explanation: [
+                    'From data models to user interfaces, I develop',
+                    'end-to-end solutions using .NET, React, and modern',
+                    'databases. This is complemented by my experience with',
+                    'CI/CD, deployment, and containerization, as well as',
+                    'my Azure Developer Associate certification.'
+                ].join(' ')
+            }
+        ]
     },
     vegan: {
         veganism: "veganism",
