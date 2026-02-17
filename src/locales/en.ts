@@ -8,21 +8,17 @@ export const en: Translation = {
     aboutMe: {
         heading: "Hi, I am Simon 👨‍💻",
         introduction: [
-            "Hi, I'm Simon – a full-stack developer with over four years",
-            'of experience in developing modern web applications.\nI analyze',
-            'requirements in a structured manner, question existing processes,',
-            'and use this information to develop well-thought-out, efficient',
-            'solutions. As an INTJ, I think strategically, quickly familiarize',
-            'myself with complex domains, and never lose sight of the big',
-            'picture.\n\nClear communication is particularly important to me:',
-            'I can explain technical concepts in an understandable way, present',
-            'confidently in front of groups, and actively contribute ideas in',
-            'reviews and team discussions.\nTechnologically, I am proficient',
-            'in the backend with C#/.NET, Entity Framework, SQL Server, and',
-            'MongoDB, as well as in the frontend with TypeScript and React.',
-            'In addition, I have experience with CI/CD, deployment, and',
-            'containerization, and am certified as a Microsoft Azure',
-            'Developer Associate.'
+              'Hi, I’m Simon – a full-stack developer with more than four years',
+              'of experience working in agile teams.\nI quickly dive into complex',
+              'domains, analyze processes in a structured way and turn them into',
+              'sustainable, well-designed solutions. As a strategically thinking',
+              'INTJ, I focus on understanding systems holistically and improving',
+              'them continuously.\n\nWithin the team, I take ownership beyond my',
+              'core tasks: I keep track of open topics, help distribute work in a',
+              'meaningful way and suggest next steps based on experience,',
+              'availability and business context. Going forward, I aim to grow',
+              'into a role with technical responsibility and stronger influence',
+              'on architecture and team organization.'
             ].join(' '),
         skills: [
             {
