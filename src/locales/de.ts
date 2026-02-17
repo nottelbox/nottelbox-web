@@ -57,7 +57,9 @@ export const de: Translation = {
                     'Azure-Developer-Associate-Zertifizierung.'
                 ].join(' ')
             }
-        ]
+        ],
+        contact: "Kontakt",
+        emailMe: "Schick mir eine Email"
     },
     vegan: {
         veganism: "Veganismus",

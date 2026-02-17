@@ -10,6 +10,8 @@ export default function AboutMe() {
           <div className="skill-container">
               {t.skills.map(s => <SkillCard key={s.heading} skill={s}/>)}
           </div>
+          <h3>{t.contact}</h3>
+          <a href="mailto:simonblum@hotmail.de" className="email">{t.emailMe}</a>
         </main>
     );
 }

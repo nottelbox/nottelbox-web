@@ -54,7 +54,9 @@ export const en: Translation = {
                     'my Azure Developer Associate certification.'
                 ].join(' ')
             }
-        ]
+        ],
+        contact: "contact",
+        emailMe: "send me an email"
     },
     vegan: {
         veganism: "veganism",

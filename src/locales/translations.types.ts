@@ -10,6 +10,8 @@ export type Translation = {
     heading: string;
     introduction: string;
     skills: Skill[];
+    contact: string;
+    emailMe: string;
   },
   vegan: {
     veganism: string;
