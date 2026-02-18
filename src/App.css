@@ -65,6 +65,13 @@
   transform: rotate(180deg);
 }
 
+@media (prefers-color-scheme: dark) {
+  .chevron {
+    filter: invert(1);
+  }
+}
+
+
 .speed-slider {
     display: flex;
     flex-direction: column;
