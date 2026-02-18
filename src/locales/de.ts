@@ -68,12 +68,8 @@ export const de: Translation = {
             veganMisconceptions: "Vegane Irrtümer",
             list: [
                 {
-                    name: "Umwelt",
-                    content: "Veganismus hat nichts mit Umweltschutz zu tun. Die Ablehnung jeglicher Tierausbeutung ist nicht zwangsläufig besser für die Umwelt, weshalb man die konsequente Ablehnung von Tierausbeutung nicht mit Umweltschutz begründen kann. Es ist möglich umweltschonend zu leben ohne die nichtmenschlichen Tiere zu respektieren. Umgekehrt ist es auch möglich Tierausbeutung konsequent abzulehnen und sich sehr umweltschädigend zu verhalten. Mit Umweltschutz gegen Tierausbeutung zu argumentieren, verhöhnt die Opfer. Stell dir vor, jemand sagt, man solle dich respektieren, weil es umweltschädigend sei dich zu versklaven."
-                },
-                {
-                    name: "Gesundheit",
-                    content: "Veganismus hat nichts mit Gesundheit zu tun. Die Ablehnung jeglicher Tierausbeutung ist nicht zwangsläufig besser für die Gesundheit, weshalb man die konsequente Ablehnung von Tierausbeutung nicht mit Gesundheit begründen kann. Es ist möglich gesund zu leben ohne die nichtmenschlichen Tiere zu respektieren. Umgekehrt ist es auch möglich Tierausbeutung konsequent abzulehnen und sehr ungesund zu leben. Mit Gesundheit gegen Tierausbeutung zu argumentieren, verhöhnt die Opfer. Stell dir vor, jemand sagt, man solle dich respektieren, weil es ungesund für deinen Unterdrücker sei dich zu versklaven."
+                    name: "Umwelt/Gesundheit",
+                    content: "Veganismus hat nichts mit Umweltschutz/Gesundheit zu tun. Die Ablehnung jeglicher Tierausbeutung ist nicht zwangsläufig besser für die Umwelt/Gesundheit, weshalb man die konsequente Ablehnung von Tierausbeutung nicht mit Umweltschutz/Gesundheit begründen kann. Es ist möglich umweltschonend/gesund zu leben ohne die nichtmenschlichen Tiere zu respektieren. Umgekehrt ist es auch möglich Tierausbeutung konsequent abzulehnen und sehr umweltschädigend/ungesund zu leben. Mit Umweltschutz/Gesundheit gegen Tierausbeutung zu argumentieren, verhöhnt die Opfer. Stell dir vor, jemand sagt, man solle dich respektieren, weil es umweltschädigend bzw. günstig für die Gesundheit der dich unterdrückenden Person sei dich zu versklaven."
                 },
                 {
                     name: "Tierleid",
@@ -84,9 +80,7 @@ export const de: Translation = {
                     content: "Pflanzen sind nicht empfindungsfähig. Sich auf hypothetisches Pflanzenleid einzulassen, kann nach hinten losgehen, da nichtmenschliche Tiere Pflanzenteile verdauen können, die Menschen nicht verdauen können. Somit wäre es in der Theorie möglich das hypothetische Pflanzenleid weiter zu reduzieren, indem man zu einem geringen Ausmaß nichtmenschliche Tiere versklavt. Lass dich nicht auf dieses hypothetische Szenario ein, um dich nicht unnötig angreifbar zu machen."
                 }
             ]
-        },
-        unfold: "aufklappen",
-        close: "schließen"
+        }
     },
     projects: {
         projects: "Projekte",

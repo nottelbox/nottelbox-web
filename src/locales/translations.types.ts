@@ -5,24 +5,22 @@ export type Translation = {
   navbar: {
     vegan: string;
     projects: string;
-  }
+  };
   aboutMe: {
     heading: string;
     introduction: string;
     skills: Skill[];
     contact: string;
     emailMe: string;
-  },
+  };
   vegan: {
     veganism: string;
     definition: string;
     veganMisconceptions: {
         veganMisconceptions: string;
         list: VeganMisconception[];
-    },
-    unfold: string;
-    close: string;
-  }
+    };
+  };
   projects: {
     projects: string;
     gameOfLife: {
@@ -38,7 +36,7 @@ export type Translation = {
             clear: string;
         }
     }
-  }
+  };
 };
 
 export type VeganMisconception = {
