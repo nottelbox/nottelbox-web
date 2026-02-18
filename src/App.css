@@ -7,15 +7,18 @@
 
 .introduction {
     text-align: left;
-    margin: 1rem 4rem;
+    margin: 1rem;
 }
 
 .skill-container {
     display: flex;
+    flex-direction: column;
 }
+
 
 .skill-card {
     margin: 3rem;
+    flex: 1;
 }
 
 .skill-heading {
@@ -45,14 +48,23 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (min-width: 768px) {
+    .introduction {
+        margin: 1rem 4rem;
+    }
+    .skill-container {
+        flex-direction: row;
+    }
+}
+
 .misconception-button {
     display: flex;
     justify-content: space-between;
-    width: 40rem;
+    width:100%;
 }
 
 .misconception-text {
-    width: 40rem;
+    width:100%;
 }
 
 .chevron {

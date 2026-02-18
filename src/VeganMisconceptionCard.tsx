@@ -12,7 +12,7 @@ export default function VeganMisconceptionCard({
     openMisconception, setOpenMisconception}: VeganMisconceptionProps) {
     return (<>
                 <button
-                onClick={_ => setOpenMisconception(p => p === m.name ? '' : m.name)}
+                onClick={() => setOpenMisconception(p => p === m.name ? '' : m.name)}
                 className="misconception-button">
                     <span>{m.name}</span>
                     <img
