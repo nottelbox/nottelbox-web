@@ -64,7 +64,9 @@
 }
 
 .misconception-text {
-    width:100%;
+    max-width: 30rem;
+    margin: 1rem auto;
+    overflow-wrap: break-word;
 }
 
 .chevron {
