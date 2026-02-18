@@ -5,36 +5,36 @@ const GRID_SIZE = 100;
 const CELL_SIZE = 6;
 
 export default function GameOfLife() {
-    const { projects: { gameOfLife: t } } = useTranslation();
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const gridRef = useRef<Uint8Array>(createGrid());
-    const runningRef = useRef(false);
-    const speedRef = useRef(100); // ms pro Generation
-    const lastTimeRef = useRef(0);
-    const accRef = useRef(0);
-    const isDrawingRef = useRef(false);
-    const drawValueRef = useRef<0 | 1>(1);
+  const { projects: { gameOfLife: t } } = useTranslation();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const gridRef = useRef<Uint8Array>(createGrid());
+  const runningRef = useRef(false);
+  const speedRef = useRef(100); // ms pro Generation
+  const lastTimeRef = useRef(0);
+  const accRef = useRef(0);
+  const isDrawingRef = useRef(false);
+  const drawValueRef = useRef<0 | 1>(1);
 
-    const [running, setRunning] = useState(false);
-    const [speed, setSpeed] = useState(100);
+  const [running, setRunning] = useState(false);
+  const [speed, setSpeed] = useState(100);
 
-    const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 
-    function loop(timestamp: number) {
-      if (!runningRef.current) return;
+  function loop(timestamp: number) {
+    if (!runningRef.current) return;
 
-      const delta = timestamp - lastTimeRef.current;
-      lastTimeRef.current = timestamp;
-      accRef.current += delta;
+    const delta = timestamp - lastTimeRef.current;
+    lastTimeRef.current = timestamp;
+    accRef.current += delta;
 
-      if (accRef.current >= speedRef.current) {
-        gridRef.current = nextGeneration(gridRef.current);
-        accRef.current = 0;
-      }
-
-      draw(ctxRef.current!, gridRef.current);
-      requestAnimationFrame(loop);
+    if (accRef.current >= speedRef.current) {
+      gridRef.current = nextGeneration(gridRef.current);
+      accRef.current = 0;
     }
+
+    draw(ctxRef.current!, gridRef.current);
+    requestAnimationFrame(loop);
+  }
 
   function singleStep() {
     gridRef.current = nextGeneration(gridRef.current);
@@ -131,52 +131,52 @@ export default function GameOfLife() {
     draw(ctx, gridRef.current);
   }
 
-    function getCellFromMouse(
-    e: React.MouseEvent<HTMLCanvasElement>
-    ) {
-      const rect = canvasRef.current!.getBoundingClientRect();
+  function getCellFromMouse(
+  e: React.MouseEvent<HTMLCanvasElement>
+  ) {
+    const rect = canvasRef.current!.getBoundingClientRect();
 
-      const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
-      const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+    const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
+    const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
 
-      return { x, y };
-    }
+    return { x, y };
+  }
 
-    function setCell(x: number, y: number, value: 0 | 1) {
-      const i = getIndex(x, y);
-      gridRef.current[i] = value;
-    }
+  function setCell(x: number, y: number, value: 0 | 1) {
+    const i = getIndex(x, y);
+    gridRef.current[i] = value;
+  }
 
-    function handleMouseDown(e: React.MouseEvent<HTMLCanvasElement>) {
-      isDrawingRef.current = true;
+  function handleMouseDown(e: React.MouseEvent<HTMLCanvasElement>) {
+    isDrawingRef.current = true;
 
-      const { x, y } = getCellFromMouse(e);
+    const { x, y } = getCellFromMouse(e);
 
-      drawValueRef.current = e.button === 2 ? 0 : 1;
+    drawValueRef.current = e.button === 2 ? 0 : 1;
 
-      setCell(x, y, drawValueRef.current);
-      draw(ctxRef.current!, gridRef.current);
-    }
+    setCell(x, y, drawValueRef.current);
+    draw(ctxRef.current!, gridRef.current);
+  }
 
-    function handleMouseMove(e: React.MouseEvent<HTMLCanvasElement>) {
-      if (!isDrawingRef.current) return;
+  function handleMouseMove(e: React.MouseEvent<HTMLCanvasElement>) {
+    if (!isDrawingRef.current) return;
 
-      const { x, y } = getCellFromMouse(e);
-      setCell(x, y, drawValueRef.current);
+    const { x, y } = getCellFromMouse(e);
+    setCell(x, y, drawValueRef.current);
 
-      draw(ctxRef.current!, gridRef.current);
-    }
+    draw(ctxRef.current!, gridRef.current);
+  }
 
-    function stopDrawing() {
-      isDrawingRef.current = false;
-    }
+  function stopDrawing() {
+    isDrawingRef.current = false;
+  }
 
-    function clearGrid() {
-        const arr = new Uint8Array(GRID_SIZE * GRID_SIZE);
-        arr.fill(0);
-        gridRef.current = arr;
-        draw(ctxRef.current!, gridRef.current)
-    }
+  function clearGrid() {
+      const arr = new Uint8Array(GRID_SIZE * GRID_SIZE);
+      arr.fill(0);
+      gridRef.current = arr;
+      draw(ctxRef.current!, gridRef.current)
+  }
 
 
   return (

@@ -12,7 +12,7 @@ export const de: Translation = {
               'Erfahrung in agilen Teams.\nIch arbeite mich schnell in komplexe',
               'fachliche Domänen ein, analysiere Prozesse strukturiert und',
               'entwickle daraus nachhaltige, durchdachte Lösungen. Als',
-              'strategisch denkender Persönlichkeitstyp (INTJ) liegt mein Fokus',
+              'strategischer Langstreckendenker liegt mein Fokus',
               'darauf, Systeme ganzheitlich zu verstehen und kontinuierlich zu',
               'verbessern.\n\nIm Team übernehme ich Verantwortung über meinen',
               'eigentlichen Aufgabenbereich hinaus: Ich behalte den Überblick',
