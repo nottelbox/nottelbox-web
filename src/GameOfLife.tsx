@@ -215,7 +215,7 @@ export default function GameOfLife() {
                   }}
                 />
               <label>{speed} {t.controls.ms}</label>
-              <label>{(1000/speed).toFixed(0)} {t.controls.generationsPerSecond}</label>
+              <label>{(1000/speed).toFixed(1)} {t.controls.generationsPerSecond}</label>
           </div>
           <button onClick={singleStep} disabled={running}>{t.controls.singleStep}</button>
       </div>
