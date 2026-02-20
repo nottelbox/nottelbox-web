@@ -93,7 +93,13 @@ export const en: Translation = {
                 generationDuration: "duration of one generation",
                 ms: "ms",
                 generationsPerSecond: "generations per second",
-                clear: "clear"
+                clear: "clear",
+                loopWithinBuffer: "loop within buffer",
+                gridSize: "grid size",
+                historyUsage: "history usage",
+                savedGenerations: "saved generations",
+                historyAlmostFull: "⚠ Speicher fast voll – Rückwärts-Schritte bald begrenzt",
+                historyFull:"⚠ Speicher voll – Anfang wird überschrieben"
             }
         }
     }

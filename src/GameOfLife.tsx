@@ -12,6 +12,7 @@ export default function GameOfLife() {
   const [speed, setSpeed] = useState(100);
   const [historyCount, setHistoryCount] = useState(1);
   const [maxHistory, setMaxHistory] = useState(Math.floor(MAX_MEMORY_BYTES / (gridSize * gridSize)));
+  const [loopInBuffer, setLoopInBuffer] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -22,6 +23,7 @@ export default function GameOfLife() {
 
   const runningRef = useRef(running);
   const speedRef = useRef(speed);
+  const loopInBufferRef = useRef(loopInBuffer);
 
   const lastTimeRef = useRef(0);
   const accRef = useRef(0);
@@ -73,38 +75,74 @@ export default function GameOfLife() {
   }, [gridSize, getIndex, countNeighbors]);
 
   const stepGeneration = useCallback((direction: 1 | -1) => {
-    if (gridHistoryRef.current.length === 0) return;
+    const history = gridHistoryRef.current;
+    if (history.length === 0) return;
+
+    const atStart = currentIndexRef.current === 0;
+    const atEnd = currentIndexRef.current === history.length - 1;
+    const bufferFull = history.length >= maxHistoryRef.current;
+
     let newGrid: Uint8Array;
-    if (direction === 1) {
-      newGrid = nextGeneration(gridHistoryRef.current[currentIndexRef.current]);
-      currentIndexRef.current++;
-      if (currentIndexRef.current < gridHistoryRef.current.length) {
-        gridHistoryRef.current = gridHistoryRef.current.slice(0, currentIndexRef.current);
+
+    if (loopInBufferRef.current && bufferFull) {
+      if (direction === 1 && atEnd) {
+        runningRef.current = -1;
+        setRunning(-1);
+        currentIndexRef.current--;
+        newGrid = history[currentIndexRef.current];
+        draw(ctxRef.current!, newGrid);
+        setHistoryCount(currentIndexRef.current + 1);
+        return;
       }
+
+      if (direction === -1 && atStart) {
+        runningRef.current = 1;
+        setRunning(1);
+        currentIndexRef.current++;
+        newGrid = history[currentIndexRef.current];
+        draw(ctxRef.current!, newGrid);
+        setHistoryCount(currentIndexRef.current + 1);
+        return;
+      }
+    }
+
+    if (direction === -1) {
+      if (!atStart) currentIndexRef.current--;
+      newGrid = history[currentIndexRef.current];
+    } else {
+      newGrid = nextGeneration(history[currentIndexRef.current]);
+      currentIndexRef.current++;
+
+      if (currentIndexRef.current < history.length) {
+        gridHistoryRef.current = history.slice(0, currentIndexRef.current);
+      }
+
       gridHistoryRef.current.push(newGrid);
-      if (gridHistoryRef.current.length > maxHistoryRef.current) {
+
+      if (
+        !loopInBufferRef.current &&
+        gridHistoryRef.current.length > maxHistoryRef.current
+      ) {
         gridHistoryRef.current.shift();
         currentIndexRef.current--;
       }
-    } else {
-      if (currentIndexRef.current > 0) currentIndexRef.current--;
-      newGrid = gridHistoryRef.current[currentIndexRef.current];
     }
+
     draw(ctxRef.current!, newGrid);
     setHistoryCount(currentIndexRef.current + 1);
   }, [draw, nextGeneration]);
 
-    const loop = (timestamp: number) => {
-      if (runningRef.current === 0) return;
-      const delta = timestamp - lastTimeRef.current;
-      lastTimeRef.current = timestamp;
-      accRef.current += delta;
-      if (accRef.current >= speedRef.current) {
-        stepGeneration(runningRef.current === 1 ? 1 : -1);
-        accRef.current = 0;
-      }
-      requestAnimationFrame(loop);
-    };
+  const loop = (timestamp: number) => {
+    if (runningRef.current === 0) return;
+    const delta = timestamp - lastTimeRef.current;
+    lastTimeRef.current = timestamp;
+    accRef.current += delta;
+    if (accRef.current >= speedRef.current) {
+      stepGeneration(runningRef.current === 1 ? 1 : -1);
+      accRef.current = 0;
+    }
+    requestAnimationFrame(loop);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -201,7 +239,7 @@ export default function GameOfLife() {
         <button onClick={clearGrid}>{t.controls.clear}</button>
 
         <div>
-          <label>Grid Size:</label>
+          <label>{t.controls.gridSize}</label>
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
             {[50, 100, 150, 200, 250, 300].map(size => (
               <button
@@ -230,7 +268,7 @@ export default function GameOfLife() {
         </div>
 
         <div>
-          <label>History Usage:</label>
+          <label>{t.controls.historyUsage}</label>
           <progress
             max={maxHistory}
             value={historyCount}
@@ -244,13 +282,29 @@ export default function GameOfLife() {
                   : "lime"
             }}
           />
-          <small>{historyCount} / {maxHistory} gespeicherte Generationen</small>
-          {historyCount / maxHistory > 0.8 && (
+          <small>{historyCount} / {maxHistory} {t.controls.savedGenerations}</small>
+          {historyCount / maxHistory > 0.8 && !loopInBuffer && (
             <div style={{ color: "orange", fontSize: "0.9rem" }}>
-              ⚠ History fast voll – Rückwärts-Schritte bald begrenzt
+              {t.controls.historyAlmostFull}
+            </div>
+          )}
+          {historyCount / maxHistory > 0.9 && !loopInBuffer && (
+            <div style={{ color: "red", fontSize: "0.9rem" }}>
+              {t.controls.historyFull}
             </div>
           )}
         </div>
+        <label>
+        <input
+          type="checkbox"
+          checked={loopInBuffer}
+          onChange={(e) => {
+            setLoopInBuffer(e.target.checked);
+            loopInBufferRef.current = e.target.checked;
+          }}
+        />
+        {t.controls.loopWithinBuffer}
+      </label>
       </div>
     </div>
   );

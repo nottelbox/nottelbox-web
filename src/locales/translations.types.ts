@@ -36,6 +36,12 @@ export type Translation = {
             ms: string;
             generationsPerSecond: string;
             clear: string;
+            loopWithinBuffer: string;
+            gridSize: string;
+            historyUsage: string;
+            savedGenerations: string;
+            historyAlmostFull: string;
+            historyFull: string;
         }
     }
   };

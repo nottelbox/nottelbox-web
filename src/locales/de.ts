@@ -96,7 +96,13 @@ export const de: Translation = {
                 generationDuration: "Dauer einer Generation",
                 ms: "ms",
                 generationsPerSecond: "Generationen pro Sekunde",
-                clear: "Löschen"
+                clear: "Löschen",
+                loopWithinBuffer: "Schleife innerhalb des Puffers",
+                gridSize: "Rastergröße",
+                historyUsage: "Verlaufsspeicher",
+                savedGenerations: "gespeicherte Generationen",
+                historyAlmostFull: "⚠ Verlauf fast voll – Rückwärts-Schritte bald begrenzt",
+                historyFull:"⚠ Verlauf voll – Anfang wird überschrieben"
             }
         }
     }
