@@ -8,7 +8,6 @@ export default function GameOfLife() {
   const { projects: { gameOfLife: t } } = useTranslation();
 
   const [gridSize, setGridSize] = useState(100);
-  const [pendingGridSize, setPendingGridSize] = useState(100);
   const [running, setRunning] = useState(0); // 0=stopped, 1=forward, -1=backward
   const [speed, setSpeed] = useState(100);
   const [historyCount, setHistoryCount] = useState(1);
@@ -202,9 +201,25 @@ export default function GameOfLife() {
         <button onClick={clearGrid}>{t.controls.clear}</button>
 
         <div>
-          <label>Grid Size: {pendingGridSize}</label>
-          <input type="range" min={50} max={300} step={1} value={pendingGridSize} onChange={(e) => setPendingGridSize(Number(e.target.value))}/>
-          <button onClick={() => { setGridSize(pendingGridSize); reset(); }}>Apply Size</button>
+          <label>Grid Size:</label>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            {[50, 100, 150, 200, 250, 300].map(size => (
+              <button
+                key={size}
+                style={{
+                  fontWeight: gridSize === size ? "bold" : "normal",
+                  outline: gridSize === size ? "2px solid lime" : "none"
+                }}
+                onClick={() => {
+                  setGridSize(size);
+                  reset();
+                }}
+                disabled={gridSize === size}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -216,12 +231,25 @@ export default function GameOfLife() {
 
         <div>
           <label>History Usage:</label>
-          <progress max={maxHistory} value={historyCount} style={{ width: "100%" }} />
+          <progress
+            max={maxHistory}
+            value={historyCount}
+            style={{
+              width: "100%",
+              accentColor:
+                historyCount / maxHistory > 0.9
+                  ? "red"
+                  : historyCount / maxHistory > 0.8
+                  ? "orange"
+                  : "lime"
+            }}
+          />
           <small>{historyCount} / {maxHistory} gespeicherte Generationen</small>
-        </div>
-
-        <div>
-          <small>Max stored generations: {maxHistory}</small>
+          {historyCount / maxHistory > 0.8 && (
+            <div style={{ color: "orange", fontSize: "0.9rem" }}>
+              ⚠ History fast voll – Rückwärts-Schritte bald begrenzt
+            </div>
+          )}
         </div>
       </div>
     </div>
