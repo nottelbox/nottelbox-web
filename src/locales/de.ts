@@ -88,9 +88,11 @@ export const de: Translation = {
             conwaysGameOfLife: "Conways Spiel des Lebens",
             controls: {
                 start: "Starten",
+                startBackward: "Rückwärts",
                 pause: "Pausieren",
                 random: "Zufällig",
                 singleStep: "Einzelschritt",
+                singleStepBackward: "Zurück",
                 generationDuration: "Dauer einer Generation",
                 ms: "ms",
                 generationsPerSecond: "Generationen pro Sekunde",

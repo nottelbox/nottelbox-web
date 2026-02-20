@@ -27,9 +27,11 @@ export type Translation = {
         conwaysGameOfLife: string;
         controls: {
             start: string;
+            startBackward: string;
             pause: string;
             random: string;
             singleStep: string;
+            singleStepBackward: string;
             generationDuration: string;
             ms: string;
             generationsPerSecond: string;
