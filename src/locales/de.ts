@@ -97,7 +97,7 @@ export const de: Translation = {
                 ms: "ms",
                 generationsPerSecond: "Generationen pro Sekunde",
                 clear: "Löschen",
-                loopWithinBuffer: "Schleife innerhalb des Puffers",
+                loopWithinHistory: "Schleife innerhalb des Verlaufs",
                 gridSize: "Rastergröße",
                 historyUsage: "Verlaufsspeicher",
                 savedGenerations: "gespeicherte Generationen",

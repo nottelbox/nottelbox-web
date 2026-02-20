@@ -12,7 +12,7 @@ export default function GameOfLife() {
   const [speed, setSpeed] = useState(100);
   const [historyCount, setHistoryCount] = useState(1);
   const [maxHistory, setMaxHistory] = useState(Math.floor(MAX_MEMORY_BYTES / (gridSize * gridSize)));
-  const [loopInBuffer, setLoopInBuffer] = useState(false);
+  const [loopInHistory, setLoopInHistory] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -23,7 +23,7 @@ export default function GameOfLife() {
 
   const runningRef = useRef(running);
   const speedRef = useRef(speed);
-  const loopInBufferRef = useRef(loopInBuffer);
+  const loopInHistoryRef = useRef(loopInHistory);
 
   const lastTimeRef = useRef(0);
   const accRef = useRef(0);
@@ -84,7 +84,7 @@ export default function GameOfLife() {
 
     let newGrid: Uint8Array;
 
-    if (loopInBufferRef.current && bufferFull) {
+    if (loopInHistoryRef.current && bufferFull) {
       if (direction === 1 && atEnd) {
         runningRef.current = -1;
         setRunning(-1);
@@ -120,7 +120,7 @@ export default function GameOfLife() {
       gridHistoryRef.current.push(newGrid);
 
       if (
-        !loopInBufferRef.current &&
+        !loopInHistoryRef.current &&
         gridHistoryRef.current.length > maxHistoryRef.current
       ) {
         gridHistoryRef.current.shift();
@@ -283,12 +283,12 @@ export default function GameOfLife() {
             }}
           />
           <small>{historyCount} / {maxHistory} {t.controls.savedGenerations}</small>
-          {historyCount / maxHistory > 0.8 && !loopInBuffer && (
+          {historyCount / maxHistory > 0.8 && !loopInHistory && (
             <div style={{ color: "orange", fontSize: "0.9rem" }}>
               {t.controls.historyAlmostFull}
             </div>
           )}
-          {historyCount / maxHistory > 0.9 && !loopInBuffer && (
+          {historyCount / maxHistory > 0.9 && !loopInHistory && (
             <div style={{ color: "red", fontSize: "0.9rem" }}>
               {t.controls.historyFull}
             </div>
@@ -297,13 +297,13 @@ export default function GameOfLife() {
         <label>
         <input
           type="checkbox"
-          checked={loopInBuffer}
+          checked={loopInHistory}
           onChange={(e) => {
-            setLoopInBuffer(e.target.checked);
-            loopInBufferRef.current = e.target.checked;
+            setLoopInHistory(e.target.checked);
+            loopInHistoryRef.current = e.target.checked;
           }}
         />
-        {t.controls.loopWithinBuffer}
+        {t.controls.loopWithinHistory}
       </label>
       </div>
     </div>

@@ -36,7 +36,7 @@ export type Translation = {
             ms: string;
             generationsPerSecond: string;
             clear: string;
-            loopWithinBuffer: string;
+            loopWithinHistory: string;
             gridSize: string;
             historyUsage: string;
             savedGenerations: string;

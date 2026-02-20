@@ -94,7 +94,7 @@ export const en: Translation = {
                 ms: "ms",
                 generationsPerSecond: "generations per second",
                 clear: "clear",
-                loopWithinBuffer: "loop within buffer",
+                loopWithinHistory: "loop within history",
                 gridSize: "grid size",
                 historyUsage: "history usage",
                 savedGenerations: "saved generations",
