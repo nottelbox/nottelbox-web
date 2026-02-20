@@ -205,7 +205,7 @@ export default function GameOfLife() {
               <input
                   type="range"
                   min={10}
-                  max={500}
+                  max={2000}
                   step={10}
                   value={speed}
                   onChange={(e) => {
