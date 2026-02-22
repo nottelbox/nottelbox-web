@@ -252,7 +252,7 @@ export default function GameOfLife() {
                   setGridSize(size);
                   reset();
                 }}
-                disabled={gridSize === size}
+                disabled={gridSize === size || running !== 0}
               >
                 {size}
               </button>
