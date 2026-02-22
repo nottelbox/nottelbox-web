@@ -277,14 +277,14 @@ export default function GameOfLife() {
           </div>
         </div>
 
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column', width: '15rem'}}>
           <label>{t.controls.generationDuration}</label>
-          <input type="range" min={10} max={2000} step={10} value={speed} onChange={(e) => setSpeed(Number(e.target.value))}/>
+          <input style={{width: '80%', margin: '0 auto'}} type="range" min={10} max={2000} step={10} value={speed} onChange={(e) => setSpeed(Number(e.target.value))}/>
           <label>{speed} {t.controls.ms}</label>
           <label>{(1000 / speed).toFixed(1)} {t.controls.generationsPerSecond}</label>
         </div>
 
-        <div>
+        <div style={{width: '5rem'}}>
           <label>{t.controls.historyUsage}</label>
           <progress
             max={maxHistory}
@@ -305,7 +305,7 @@ export default function GameOfLife() {
               {t.controls.historyAlmostFull}
             </div>
           )}
-          {historyCount / maxHistory > 0.9 && !loopInHistory && (
+          {historyCount / maxHistory > 0.99 && !loopInHistory && (
             <div style={{ color: "red", fontSize: "0.9rem" }}>
               {t.controls.historyFull}
             </div>
