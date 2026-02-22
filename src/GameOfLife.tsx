@@ -13,6 +13,7 @@ export default function GameOfLife() {
   const [historyCount, setHistoryCount] = useState(1);
   const [maxHistory, setMaxHistory] = useState(Math.floor(MAX_MEMORY_BYTES / (gridSize * gridSize)));
   const [loopInHistory, setLoopInHistory] = useState(false);
+  const [randomness, setRandomness] = useState(0.7);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -42,9 +43,9 @@ export default function GameOfLife() {
     }
   }, [gridSize, getIndex]);
 
-  const createGrid = useCallback(() => {
+  const createGrid = useCallback((randomness: number) => {
     const arr = new Uint8Array(gridSize * gridSize);
-    for (let i = 0; i < arr.length; i++) arr[i] = Math.random() > 0.7 ? 1 : 0;
+    for (let i = 0; i < arr.length; i++) arr[i] = Math.random() > randomness ? 1 : 0;
     return arr;
   }, [gridSize]);
 
@@ -147,12 +148,12 @@ export default function GameOfLife() {
   useEffect(() => {
     const canvas = canvasRef.current!;
     ctxRef.current = canvas.getContext("2d")!;
-    gridHistoryRef.current = [createGrid()];
+    gridHistoryRef.current = [createGrid(randomness)];
     currentIndexRef.current = 0;
     maxHistoryRef.current = Math.floor(MAX_MEMORY_BYTES / (gridSize * gridSize));
     setHistoryCount(1);
     draw(ctxRef.current, gridHistoryRef.current[0]);
-  }, [createGrid, draw, gridSize]);
+  }, [createGrid, draw, gridSize, randomness]);
 
   useEffect(() => {
     setMaxHistory(Math.floor(MAX_MEMORY_BYTES / (gridSize * gridSize)));
@@ -170,11 +171,13 @@ export default function GameOfLife() {
 
   const singleStepForward = () => stepGeneration(1);
   const singleStepBackward = () => stepGeneration(-1);
-
-  const reset = () => {
-    gridHistoryRef.current = [createGrid()];
-    currentIndexRef.current = 0;
-    setHistoryCount(1);
+  
+  const reset = (r: number) => {
+    if (r === randomness){
+      gridHistoryRef.current = [createGrid(r)];
+      currentIndexRef.current = 0;
+      setHistoryCount(1);
+    }
     draw(ctxRef.current!, gridHistoryRef.current[0]);
   };
 
@@ -235,22 +238,36 @@ export default function GameOfLife() {
         <button onClick={() => toggleRunning(-1)}>{running === -1 ? t.controls.pause : t.controls.startBackward}</button>
         <button onClick={singleStepForward} disabled={running !== 0}>{t.controls.singleStep}</button>
         <button onClick={singleStepBackward} disabled={running !== 0}>{t.controls.singleStepBackward}</button>
-        <button onClick={reset}>{t.controls.random}</button>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <label>{t.controls.random}</label>
+          {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map(r => (
+            <button
+              key={r}
+              style={{
+                color: r === randomness ? 'red': '',
+                outline: r === randomness ? "2px solid lime" : "none"
+              }}
+              onClick={() => {
+                setRandomness(r);
+                reset(r);
+              }}
+            >{r}</button>
+            ))}
+        </div>
         <button onClick={clearGrid}>{t.controls.clear}</button>
 
         <div>
           <label>{t.controls.gridSize}</label>
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", flexDirection: 'column' }}>
             {[50, 100, 150, 200, 250, 300].map(size => (
               <button
                 key={size}
                 style={{
-                  fontWeight: gridSize === size ? "bold" : "normal",
+                  color: size === gridSize ? 'red' : '',
                   outline: gridSize === size ? "2px solid lime" : "none"
                 }}
                 onClick={() => {
                   setGridSize(size);
-                  reset();
                 }}
                 disabled={gridSize === size || running !== 0}
               >
@@ -275,7 +292,7 @@ export default function GameOfLife() {
             style={{
               width: "100%",
               accentColor:
-                historyCount / maxHistory > 0.9
+                historyCount / maxHistory > 0.99
                   ? "red"
                   : historyCount / maxHistory > 0.8
                   ? "orange"
