@@ -234,8 +234,8 @@ export default function GameOfLife() {
       />
 
       <div className="game-controls">
-        <button onClick={() => toggleRunning(1)}>{running === 1 ? t.controls.pause : t.controls.start}</button>
-        <button onClick={() => toggleRunning(-1)}>{running === -1 ? t.controls.pause : t.controls.startBackward}</button>
+        <button className="start-button" onClick={() => toggleRunning(1)}>{running === 1 ? t.controls.pause : t.controls.start}</button>
+        <button className="start-button" onClick={() => toggleRunning(-1)}>{running === -1 ? t.controls.pause : t.controls.startBackward}</button>
         <button onClick={singleStepForward} disabled={running !== 0}>{t.controls.singleStep}</button>
         <button onClick={singleStepBackward} disabled={running !== 0}>{t.controls.singleStepBackward}</button>
         <div style={{display: 'flex', flexDirection: 'column'}}>
