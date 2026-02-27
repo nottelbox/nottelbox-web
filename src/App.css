@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.navlink {
+  border: 2px solid white;
+  margin: 0 .5rem;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+}
+
+.navlink:hover {
+    background-color: rgb(80, 80, 80);
+}
+
+.navlink.active {
+    border-color: #646cff;
+}
+
 .introduction {
     text-align: left;
     margin: 1rem;

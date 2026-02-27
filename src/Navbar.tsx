@@ -6,13 +6,22 @@ export default function Navbar() {
     const t = useTranslation();
 
     return (<nav>
-        <NavLink to="/">
+        <NavLink
+         to="/"
+         className="navlink"
+        >
             nottelbox
         </NavLink>
-        <NavLink to="/vegan">
+        <NavLink
+         to="/vegan"
+         className="navlink"
+        >
             {t.navbar.vegan}
         </NavLink>
-        <NavLink to="/projects">
+        <NavLink
+         to="/projects"
+         className="navlink"
+        >
             {t.navbar.projects}
         </NavLink>
         <LanguageSwitcher />
