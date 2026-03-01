@@ -69,7 +69,7 @@ export const de: Translation = {
             list: [
                 {
                     name: "Umwelt/Gesundheit",
-                    content: "Veganismus hat nichts mit Umweltschutz/Gesundheit zu tun. Die Ablehnung jeglicher Tierausbeutung ist nicht zwangsläufig besser für die Umwelt/Gesundheit, weshalb man die konsequente Ablehnung von Tierausbeutung nicht mit Umweltschutz/Gesundheit begründen kann. Es ist möglich umweltschonend/gesund zu leben ohne die nichtmenschlichen Tiere zu respektieren. Umgekehrt ist es auch möglich Tierausbeutung konsequent abzulehnen und sehr umweltschädigend/ungesund zu leben. Mit Umweltschutz/Gesundheit gegen Tierausbeutung zu argumentieren, verhöhnt die Opfer. Stell dir vor, jemand sagt, man solle dich respektieren, weil es umweltschädigend bzw. günstig für die Gesundheit der dich unterdrückenden Person sei dich zu versklaven."
+                    content: "Veganismus hat nichts mit Umweltschutz/Gesundheit zu tun. Die Ablehnung jeglicher Tierausbeutung ist nicht zwangsläufig besser für die Umwelt/Gesundheit, weshalb man die konsequente Ablehnung von Tierausbeutung nicht mit Umweltschutz/Gesundheit begründen kann. Es ist möglich umweltschonend/gesund zu leben ohne die nichtmenschlichen Tiere zu respektieren. Umgekehrt ist es auch möglich Tierausbeutung konsequent abzulehnen und sehr umweltschädigend/ungesund zu leben. Mit Umweltschutz/Gesundheit gegen Tierausbeutung zu argumentieren, verhöhnt die Opfer. Stell dir vor, jemand sagt, man solle dich respektieren, weil es umweltschädigend bzw. ungünstig für die Gesundheit der dich unterdrückenden Person sei dich zu versklaven."
                 },
                 {
                     name: "Tierleid",
