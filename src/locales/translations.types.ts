@@ -20,6 +20,15 @@ export type Translation = {
         veganMisconceptions: string;
         list: VeganMisconception[];
     };
+    ntt: {
+      ntt: string;
+      mainQuestion: string;
+      traits: string;
+      traitList: Trait[];
+      consistencyCheck: string;
+      consistencyIntroduction: string;
+      consistencyQuestion: string;
+    };
   };
   projects: {
     projects: string;
@@ -47,16 +56,22 @@ export type Translation = {
   };
 };
 
+export type Trait = {
+  key: string;
+  name: string;
+  consistencyTest: string;
+};
+
 export type VeganMisconception = {
     name: string;
     content: string;
-}
+};
 
 export type Skill = {
     symbol: string;
     heading: string;
     explanation: string;
-}
+};
 
 
 export const translations: Record<string, Translation> = {

@@ -72,6 +72,10 @@
     }
 }
 
+.ntt-container {
+    width: 40rem;
+}
+
 .misconception-button {
     display: flex;
     justify-content: space-between;

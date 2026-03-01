@@ -80,6 +80,64 @@ export const de: Translation = {
                     content: "Pflanzen sind nicht empfindungsfähig. Sich auf hypothetisches Pflanzenleid einzulassen, kann nach hinten losgehen, da nichtmenschliche Tiere Pflanzenteile verdauen können, die Menschen nicht verdauen können. Somit wäre es in der Theorie möglich das hypothetische Pflanzenleid weiter zu reduzieren, indem man zu einem geringen Ausmaß nichtmenschliche Tiere versklavt. Lass dich nicht auf dieses hypothetische Szenario ein, um dich nicht unnötig angreifbar zu machen."
                 }
             ]
+        },
+        ntt: {
+            ntt: "NTT",
+            mainQuestion: "Was ist der ethisch relevante Eigenschaftsunterschied zwischen Menschen und anderen Tieren, der die Ausbeutung von nichtmenschlichen Tieren in deiner Moral rechtfertigt, während Menschen laut deiner Moral nicht als Sklaven verwendet werden dürfen?",
+            traits: "Eigenschaftsunterschiede",
+            traitList: [{
+                key: "int",
+                name: "Intelligenz",
+                consistencyTest: "Ihre Intelligenz ist auf dem Niveau von anderen Tieren."
+            },
+            {
+                key: "spe",
+                name: "Spezies",
+                consistencyTest: "Ihre DNS wurde geändert, sodass sie nicht der Spezies Mensch angehören. Sie haben eine andere Ohrenform."
+            },
+            {
+                key: "sel",
+                name: "Selbstbewusstsein",
+                consistencyTest: "Sie erkennen sich nicht im Spiegel und besitzen kein autobiografisches Selbstkonzept."
+            },
+            {
+                key: "com",
+                name: "Kommunikation",
+                consistencyTest: "Sie können keine komplexe Sprache verwenden, sondern nur einfache Laute und Körpersprache wie andere Tiere."
+            },
+            {
+                key: "mor",
+                name: "Moralisches Verständnis",
+                consistencyTest: "Sie haben Verständnis für moralische Regeln oder ethische Reflexion ähnlich wie andere Tiere."
+            },
+            {
+                key: "soc",
+                name: "Soziale Beziehungen",
+                consistencyTest: "Ihre sozialen Bindungen und Ihre Fürsorge für andere entsprechen denen von anderen Tieren."
+            },
+            {
+                key: "pot",
+                name: "Potenzial",
+                consistencyTest: "Sie besitzen nicht das Potenzial, Ihre kognitiven Fähigkeiten über das Niveau anderer Tiere hinaus zu entwickeln."
+            },
+            {
+                key: "cul",
+                name: "Kulturelle Teilhabe",
+                consistencyTest: "Sie können nicht an Kultur, Technologie oder komplexen gesellschaftlichen Strukturen teilnehmen."
+            },
+            {
+                key: "rel",
+                name: "Beziehungsfähigkeit",
+                consistencyTest: "Sie können zu Menschen keine engeren emotionalen Beziehungen aufbauen als andere Tiere."
+            },
+            {
+                key: "use",
+                name: "Nützlichkeit",
+                consistencyTest: "Sie haben für die Gesellschaft keinen größeren Nutzen als andere Tiere."
+            }],
+            consistencyCheck: "Konsistenzprüfung",
+            consistencyIntroduction: "Stell dir Menschen vor, an denen folgendes verändert wurde:",
+            consistencyQuestion: "Dürfte man diese fühlenden Personen laut deiner Moral ausbeuten?"
         }
     },
     projects: {

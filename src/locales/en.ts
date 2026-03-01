@@ -77,6 +77,64 @@ export const en: Translation = {
                     content: "Plants are not sentient. Engaging in hypothetical plant suffering can backfire, as nonhuman animals can digest parts of plants that humans cannot. Thus, in theory, it would be possible to further reduce hypothetical plant suffering by enslaving nonhuman animals to a small extent. Do not engage in this hypothetical scenario so as not to make yourself unnecessarily vulnerable."
                 }
             ]
+        },
+        ntt: {
+            ntt: "NTT",
+            mainQuestion: "What is the ethically relevant difference between humans and other animals that justifies the exploitation of non-human animals in your moral code, while humans, according to your moral code, may not be used as slaves?",
+            traits: "traits",
+            traitList: [{
+                key: "int",
+                name: "Intelligence",
+                consistencyTest: "Their intelligence is on par with that of other animals."
+            },
+            {
+                key: "spe",
+                name: "Species",
+                consistencyTest: "Their DNA has been altered so that they no longer belong to the human species. They have a different ear shape."
+            },
+            {
+                key: "sel",
+                name: "Self-awareness",
+                consistencyTest: "They do not recognize themselves in a mirror and have no autobiographical self-concept."
+            },
+            {
+                key: "com",
+                name: "Communication",
+                consistencyTest: "They cannot use complex language, only simple sounds and body language like other animals."
+            },
+            {
+                key: "mor",
+                name: "Moral understanding",
+                consistencyTest: "They have understanding of moral rules or ethical reflection similar to other animals."
+            },
+            {
+                key: "soc",
+                name: "Social bonds",
+                consistencyTest: "Their social relationships and care for others are equivalent to those of other animals."
+            },
+            {
+                key: "pot",
+                name: "Potential",
+                consistencyTest: "They do not have the potential to develop cognitive abilities beyond those of other animals."
+            },
+            {
+                key: "cul",
+                name: "Cultural participation",
+                consistencyTest: "They cannot participate in culture, technology, or complex societal structures."
+            },
+            {
+                key: "rel",
+                name: "Relational capacity",
+                consistencyTest: "They cannot form closer emotional relationships with humans than other animals can."
+            },
+            {
+                key: "use",
+                name: "Usefulness",
+                consistencyTest: "They are not more useful to society than other animals."
+            }],
+            consistencyCheck: "consistency check",
+            consistencyIntroduction: "Imagine people who have undergone the following changes:",
+            consistencyQuestion: "According to your moral code, is it permissible to exploit these sentient beings?"
         }
     },
     projects: {
