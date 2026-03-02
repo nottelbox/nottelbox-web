@@ -73,13 +73,20 @@
 }
 
 .ntt-container {
-    width: 40rem;
+    /*width: 40rem;*/
+    margin: 1rem;
+}
+
+@media (min-width: 768px) {
+    .ntt-container {
+        width: 40rem;
+    }
 }
 
 .misconception-button {
     display: flex;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
 }
 
 .misconception-text {

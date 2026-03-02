@@ -7,7 +7,7 @@ export default function Vegan() {
     const {vegan: t} = useTranslation();
     const [openMisconception, setOpenMisconception] = useState<string>("");
     return (
-        <main style={{ padding: 40 }}>
+        <main style={{ padding: 20 }}>
             <h1>{t.veganism}</h1>
             <p>{t.definition}</p>
             <Ntt />
