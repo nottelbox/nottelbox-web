@@ -81,7 +81,7 @@ export const en: Translation = {
         ntt: {
             ntt: "NTT",
             mainQuestion: "What is the ethically relevant difference between humans and other animals that justifies the exploitation of non-human animals in your moral code, while humans, according to your moral code, may not be used as slaves?",
-            traits: "traits",
+            traits: "traits (choose one or more)",
             traitList: [{
                 key: "int",
                 name: "Intelligence",
@@ -134,7 +134,14 @@ export const en: Translation = {
             }],
             consistencyCheck: "consistency check",
             consistencyIntroduction: "Imagine people who have undergone the following changes:",
-            consistencyQuestion: "According to your moral code, is it permissible to exploit these sentient beings?"
+            consistencyQuestion: "According to your moral code, is it permissible to exploit these sentient beings?",
+            noContradiction: "No - contradiction",
+            yesReductio: "Yes - reductio",
+            contradictionSingularPositive: "is the ethical relevant trait that justifies the exploitation.",
+            contradictionSingularNegative: "is not the ethical relevant trait that justifies the exploitation.",
+            contradictionPluralPositive: "are the ethical relevant traits that justify the exploitation.",
+            contradictionPluralNegative: "are NOT the ethical relevant traits that justify the exploitation.",
+            reductio: "If the selected characteristics represent the morally relevant difference, it follows that individuals may be exploited as soon as they do not fulfill these characteristics—even if they otherwise share many characteristics with humans, especially sentience. Is that a moral you want to uphold?"
         }
     },
     projects: {

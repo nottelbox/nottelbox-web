@@ -15,6 +15,8 @@ export default function Ntt() {
         });
     }
 
+    const traitNames = traits.map(trait => t.traitList.find(i => i.key === trait)?.name).join(', ');
+
     return (<div className="ntt-container">
             <h1>{t.ntt}</h1>
             <p>{t.mainQuestion}</p>
@@ -29,6 +31,17 @@ export default function Ntt() {
                     {traits.map(tk => <li key={tk} style={{textAlign: 'left'}}>{t.traitList.find(t => t.key === tk)?.consistencyTest}</li>)}
                 </ul>
                 <p>{t.consistencyQuestion}</p>
+                <div style={{display: 'flex'}}>
+                    <div style={{width: '50%', textAlign: 'left', margin: '1rem',}}>
+                        <h3>{t.noContradiction}</h3>
+                        <p>{`${traitNames} ${traits.length === 1 ? t.contradictionSingularPositive : t.contradictionPluralPositive}`}</p>
+                        <p>{`${traitNames} ${traits.length === 1 ? t.contradictionSingularNegative : t.contradictionPluralNegative}`}</p>
+                    </div>
+                    <div style={{width: '50%', textAlign: 'left', margin: '1rem',}}>
+                        <h3>{t.yesReductio}</h3>
+                        <p>{t.reductio}</p>
+                    </div>
+                </div>
             </>}
         </div>);
 }

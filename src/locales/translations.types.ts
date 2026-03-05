@@ -28,6 +28,13 @@ export type Translation = {
       consistencyCheck: string;
       consistencyIntroduction: string;
       consistencyQuestion: string;
+      noContradiction: string;
+      yesReductio: string;
+      contradictionSingularPositive: string;
+      contradictionSingularNegative: string;
+      contradictionPluralPositive: string;
+      contradictionPluralNegative: string;
+      reductio: string;
     };
   };
   projects: {

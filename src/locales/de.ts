@@ -84,7 +84,7 @@ export const de: Translation = {
         ntt: {
             ntt: "NTT",
             mainQuestion: "Was ist der ethisch relevante Eigenschaftsunterschied zwischen Menschen und anderen Tieren, der die Ausbeutung von nichtmenschlichen Tieren in deiner Moral rechtfertigt, während Menschen laut deiner Moral nicht als Sklaven verwendet werden dürfen?",
-            traits: "Eigenschaftsunterschiede",
+            traits: "Eigenschaftsunterschiede (wähle einen oder mehrere)",
             traitList: [{
                 key: "int",
                 name: "Intelligenz",
@@ -137,7 +137,14 @@ export const de: Translation = {
             }],
             consistencyCheck: "Konsistenzprüfung",
             consistencyIntroduction: "Stell dir Menschen vor, an denen folgendes verändert wurde:",
-            consistencyQuestion: "Dürfte man diese fühlenden Personen laut deiner Moral ausbeuten?"
+            consistencyQuestion: "Dürfte man diese fühlenden Personen laut deiner Moral ausbeuten?",
+            noContradiction: "Nein - Widerspruch",
+            yesReductio: "Ja - Reductio",
+            contradictionSingularPositive: "ist der ethisch relevante Eigenschaftsunterschied, der die Ausbeutung rechtfertig.",
+            contradictionSingularNegative: "ist nicht der ethisch relevante Eigenschaftsunterschied, der die Ausbeutung rechtfertig.",
+            contradictionPluralPositive: "sind die ethisch relevanten Eigenschaftsunterschiede, die die Ausbeutung rechtfertigen.",
+            contradictionPluralNegative: "sind NICHT die ethisch relevanten Eigenschaftsunterschiede, die die Ausbeutung rechtfertigen.",
+            reductio: "Wenn die gewählten Eigenschaften den moralisch relevanten Unterschied darstellen, folgt daraus, dass Individuen ausgebeutet werden dürfen, sobald sie diese Eigenschaften nicht erfüllen – selbst wenn sie ansonsten viele Eigenschaften mit Menschen teilen, insbesondere die Empfindungsfähigkeit. Ist das eine Moral, die du vertreten möchtest?"
         }
     },
     projects: {
