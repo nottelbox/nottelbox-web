@@ -118,7 +118,7 @@ export const de: Translation = {
             {
                 key: "pot",
                 name: "Potenzial",
-                consistencyTest: "Sie besitzen nicht das Potenzial, Ihre kognitiven Fähigkeiten über das Niveau anderer Tiere hinaus zu entwickeln."
+                consistencyTest: "Sie besitzen nicht das Potenzial, ihre kognitiven Fähigkeiten über das Niveau anderer Tiere hinaus zu entwickeln."
             },
             {
                 key: "cul",
