@@ -63,7 +63,7 @@ export const de: Translation = {
     },
     vegan: {
         veganism: "Veganismus",
-        definition: "Das ethische Prinzip, dass Menschen ohne die Ausbeutung anderer Tiere leben sollen.",
+        definition: "Das ethische Prinzip, dass Menschen ohne die Ausbeutung anderer Tiere leben sollten.",
         veganMisconceptions: {
             veganMisconceptions: "Vegane Irrtümer",
             list: [
