@@ -163,8 +163,8 @@ export const en: Translation = {
                 gridSize: "grid size",
                 historyUsage: "history usage",
                 savedGenerations: "saved generations",
-                historyAlmostFull: "⚠ Speicher fast voll – Rückwärts-Schritte bald begrenzt",
-                historyFull:"⚠ Speicher voll – Anfang wird überschrieben"
+                historyAlmostFull: "⚠ history nearly full – backward steps will soon be limited",
+                historyFull:"⚠ history full – beginning will be overwritten"
             }
         }
     }
